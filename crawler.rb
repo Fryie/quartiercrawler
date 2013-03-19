@@ -12,9 +12,7 @@ results = []
   
 if page.search("[text()*='Es wurden keine passenden Ergebnisse gefunden.']").empty?
   has_next = true
-  i = 0
   while has_next
-    puts i += 1
     page.search("td.postbody").each do |post_preview|
       # messy structure !
       link = post_preview.parent.parent.parent.parent.previous.search('td')[1].search('td div')[0].search('a').attribute('href').value
